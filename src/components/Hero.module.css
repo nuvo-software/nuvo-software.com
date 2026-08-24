@@ -1,0 +1,72 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: calc(100svh - var(--nav-h));
+  display: flex;
+  align-items: center;
+  padding: 3.5rem 0 5rem;
+}
+
+.glow {
+  position: absolute;
+  inset: auto -20% 10% 20%;
+  height: 28rem;
+  background:
+    radial-gradient(closest-side, color-mix(in srgb, var(--cyan) var(--glow-cyan), transparent), transparent 70%),
+    radial-gradient(closest-side at 20% 40%, color-mix(in srgb, var(--violet) var(--glow-violet), transparent), transparent 65%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.watermark {
+  position: absolute;
+  right: -6%;
+  top: 8%;
+  width: min(52vw, 28rem);
+  height: auto;
+  opacity: 0.16;
+  pointer-events: none;
+  z-index: -1;
+}
+
+[data-theme='dark'] .watermark {
+  opacity: 0.32;
+}
+
+.lockup {
+  margin-bottom: 1.5rem;
+}
+
+.lockupImg {
+  height: 2.6rem;
+  width: auto;
+}
+
+.inner {
+  position: relative;
+  max-width: 54rem;
+}
+
+.title {
+  font-size: clamp(2.15rem, 5.6vw, 3.6rem);
+  max-width: 18ch;
+}
+
+.lede {
+  margin-top: 1.35rem;
+  font-size: 1.15rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2.1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow {
+    opacity: 0.7;
+  }
+}

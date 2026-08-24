@@ -1,0 +1,52 @@
+.section {
+  padding: 5.5rem 0 2rem;
+}
+
+.title {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  max-width: 16ch;
+  margin-bottom: 2.4rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  padding: 1.4rem 1.35rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.index {
+  display: block;
+  margin-bottom: 1.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--cyan);
+}
+
+.cardTitle {
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 0.7rem;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
