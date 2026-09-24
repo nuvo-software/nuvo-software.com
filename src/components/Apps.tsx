@@ -1,5 +1,6 @@
 import { useEffect, useState, type CSSProperties } from 'react'
 import { site, type SiteApp } from '../content/site.ts'
+import { useTheme } from '../ThemeContext.tsx'
 import styles from './Apps.module.css'
 
 export function Apps() {
@@ -54,10 +55,13 @@ function AppCard({ app }: { app: SiteApp }) {
 }
 
 function ScreenshotWell({ app }: { app: SiteApp }) {
+  const { theme } = useTheme()
+  const mark = app.mark ? (theme === 'dark' ? app.mark.dark : app.mark.light) : undefined
+  const src = app.screenshot ?? mark
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
-    if (!app.screenshot) {
+    if (!src) {
       setLoaded(false)
       return
     }
@@ -70,19 +74,22 @@ function ScreenshotWell({ app }: { app: SiteApp }) {
     image.onerror = () => {
       if (!cancelled) setLoaded(false)
     }
-    image.src = app.screenshot
+    image.src = src
     return () => {
       cancelled = true
     }
-  }, [app.screenshot])
+  }, [src])
 
   return (
     <div
-      className={styles.shot}
+      className={mark && !app.screenshot ? `${styles.shot} ${styles.shotMark}` : styles.shot}
       style={{ '--app-accent': app.accent } as CSSProperties}
     >
-      {loaded && app.screenshot ? (
-        <img src={app.screenshot} alt={`${app.name} App Store screenshot`} />
+      {loaded && src ? (
+        <img
+          src={src}
+          alt={app.screenshot ? `${app.name} App Store screenshot` : ''}
+        />
       ) : (
         <p className={styles.shotPlaceholder}>App Store screenshots coming soon</p>
       )}

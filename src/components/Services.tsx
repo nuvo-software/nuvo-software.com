@@ -6,7 +6,7 @@ export function Services() {
     <section id="services" className={styles.section}>
       <div className="wrap">
         <p className="eyebrow">Services</p>
-        <h2 className={`display ${styles.title}`}>A product partner, not a ticket queue.</h2>
+        <h2 className={`display ${styles.title}`}>Engineering, operations, and our own products.</h2>
         <ul className={styles.grid}>
           {site.services.map((service, index) => (
             <li key={service.id} className={styles.card}>

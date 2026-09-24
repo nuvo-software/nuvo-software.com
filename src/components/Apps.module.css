@@ -10,7 +10,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin: 0;
   padding: 0;
@@ -129,6 +129,18 @@
   height: 100%;
   object-fit: cover;
   object-position: top center;
+}
+
+.shotMark {
+  background:
+    radial-gradient(90% 70% at 50% 42%, color-mix(in srgb, var(--app-accent) 28%, transparent), transparent 62%),
+    color-mix(in srgb, var(--card) 88%, var(--bg));
+}
+
+.shotMark img {
+  object-fit: contain;
+  object-position: center;
+  padding: 1.25rem 1.5rem 1.5rem;
 }
 
 .shotPlaceholder {

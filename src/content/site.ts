@@ -11,6 +11,8 @@ export type SiteApp = {
   screenshot?: string
   /** App icon shown beside the name. */
   icon?: string
+  /** Transparent stacked lockup for the card well when there is no screenshot yet. */
+  mark?: { light: string; dark: string }
   /** When set, the App Store chip becomes a link. */
   storeUrl?: string
   /** When set, the Google Play chip (shown for apps with Android in platforms) becomes a link. */
@@ -21,9 +23,9 @@ export const site = {
   name: 'nuvō',
   email: 'hello@nuvo-software.com',
   url: 'https://nuvo-software.com',
-  tagline: 'Custom software, DevOps, and products we ship ourselves.',
+  tagline: 'Custom software and DevOps for other teams, and apps we ship ourselves.',
   description:
-    'nuvō builds custom software and DevOps for teams that need a real product partner — and ships its own apps alongside that work.',
+    'nuvō builds web and native products for clients, runs the cloud work that keeps them up, and makes its own apps the same way.',
   nav: [
     { href: '#services', label: 'Services' },
     { href: '#work', label: 'Work' },
@@ -34,26 +36,26 @@ export const site = {
     {
       id: 'engineering',
       title: 'Full-stack product engineering',
-      body: 'Web, iOS, Android, macOS, and visionOS. APIs, data models, and interfaces that hold up in production — not just in a demo.',
+      body: 'Web, iOS, Android, Mac, and visionOS. APIs, data, and interfaces meant to hold up after launch.',
     },
     {
       id: 'devops',
       title: 'Cloud and DevOps',
-      body: 'AWS, CI/CD, storage, billing, and the unglamorous work that keeps a product running after launch day.',
+      body: 'AWS, continuous delivery, storage, and billing — the work that keeps a product running once it’s live.',
     },
     {
       id: 'product',
-      title: 'From engagement to product',
-      body: 'We take on client work and we ship our own apps. Same craft, both directions — you get a partner who actually builds.',
+      title: 'Client work and our own apps',
+      body: 'Engagements for other teams, and products we ship ourselves. Same people, same standard.',
     },
   ],
   work: {
     eyebrow: 'Featured work',
     name: 'GridTrx',
-    role: 'Software development services',
+    role: 'Utility billing platform',
     summary:
-      'A utility billing and tenant-management platform: meters, readings, occupancy, and invoicing in one system.',
-    body: 'Built as a full-stack engagement — React web app, Node API, and AWS for meter photos and production ops. Role-based portals for management, admin, and tenants.',
+      'Meters, readings, occupancy, and invoices for buildings and the people who live in them.',
+    body: 'A React web app and Node API, hosted on AWS with the database and the rest of the stack. Separate portals for administrators, management companies, and tenants. Payments go through Stripe.',
     highlights: [
       'Meter readings and usage across buildings, units, and tenants',
       'Billing, payments, and Stripe',
@@ -63,16 +65,16 @@ export const site = {
     logo: '/work/gridtrx-logo.svg',
     logoMark: '/work/gridtrx-icon.svg',
   },
-  appsIntro: 'Products we build for ourselves — and for anyone who needs them.',
+  appsIntro: 'Apps we build for ourselves, and ship for everyone else.',
   apps: [
     {
       id: 'turns',
       name: 'Turns',
-      pitch: 'Mix Apple Music playlists in rotation — one for you, one for me.',
+      pitch: 'Apple Music playlists that take turns — and a party where everyone gets a song.',
       bullets: [
-        'Shuffle each playlist on its own, then rotate tracks',
-        'Save favorite mixes with Turns Pro',
-        'Listening stays on your device',
+        'Shuffle two or more playlists, then alternate songs',
+        'Pass the phone, or invite people nearby, and take turns picking songs',
+        'Save mixes with Turns Pro. Listening stays on the device',
       ],
       platforms: ['iOS', 'Android', 'Mac', 'visionOS'],
       platformsSoon: ['Mac', 'visionOS'],
@@ -84,11 +86,11 @@ export const site = {
     {
       id: 'buckaroo',
       name: 'Buckaroo',
-      pitch: 'Personal finance with an on-device first mate — not a cloud that owns your books.',
+      pitch: 'Personal finance that lives on your devices, with an assistant that drafts the bookkeeping.',
       bullets: [
         'Accounts, budgets, investments, and reports',
-        'First Mate drafts transactions on-device',
-        'Lock the app; iCloud sync is optional',
+        'First Mate drafts transactions on your device, and you review them before they save',
+        'Lock the app, and turn on iCloud sync only if you want it',
       ],
       platforms: ['iOS', 'Mac', 'visionOS'],
       accent: '#34c759',
@@ -97,15 +99,32 @@ export const site = {
     {
       id: 'stable',
       name: 'Stable',
-      pitch: 'Vehicle maintenance for the garage you actually have — cars, bikes, whatever’s in the stall.',
+      pitch: 'Service records for the cars, bikes, and other vehicles you actually keep.',
       bullets: [
-        'Track vehicles (Stalls) across garages (Stables)',
-        'Service history, parts, and photos',
-        'Share a Stable with family via iCloud',
+        'Each vehicle is a Stall, and a garage of them is a Stable',
+        'Service history, parts, mileage, photos, and reminders',
+        'Share a Stable with family through iCloud',
       ],
       platforms: ['iOS', 'Mac'],
       accent: '#ef3b3b',
       icon: '/apps/stable-icon.png',
+    },
+    {
+      id: 'vortex',
+      name: 'Vortex',
+      pitch: 'Live TV you already pay for, and your Plex library, in one player.',
+      bullets: [
+        'A guide, channels, and restart for shows that already aired, from IPTV accounts you connect',
+        'Movies and shows from Plex, and on-demand from those TV sources',
+        'One player on iPhone, Mac, Apple TV, and Vision Pro',
+      ],
+      platforms: ['iOS', 'Mac', 'Apple TV', 'visionOS'],
+      accent: '#6d4dff',
+      icon: '/apps/vortex-icon.png',
+      mark: {
+        light: '/apps/vortex-mark-light.png',
+        dark: '/apps/vortex-mark-dark.png',
+      },
     },
   ] satisfies readonly SiteApp[],
   contact: {
